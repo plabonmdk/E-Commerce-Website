@@ -19,22 +19,18 @@ const DropdownLinks = [
   { id: 3, name: "Top Rated", link: "/#" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ setOrderPopup }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 shadow-md bg-white dark:bg-slate-900 text-gray-900 dark:text-white duration-300">
-
       {/* Top Navbar */}
       <div className="bg-primary/40">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <img src={Logo} alt="Logo" className="w-10" />
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Shopsy
-            </h1>
+            <h1 className="text-2xl font-bold">Shopsy</h1>
           </a>
 
           {/* Search */}
@@ -45,99 +41,80 @@ const Navbar = () => {
                 placeholder="Search..."
                 className="w-[220px] group-hover:w-[320px] transition-all duration-300 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 py-2 pr-10 outline-none focus:border-primary"
               />
+
               <IoMdSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-gray-500 dark:text-gray-300 group-hover:text-primary" />
             </div>
           </div>
 
-          {/* Right */}
+          {/* Right Side */}
           <div className="flex items-center gap-4">
-
-            <button className="hidden md:flex items-center gap-2 bg-gradient-to-r from-primary to-secondary px-4 py-2 rounded-full text-white hover:scale-105 duration-300">
-              Order
+            {/* Order Button */}
+            <button
+              onClick={() => setOrderPopup(true)}
+              className="hidden md:flex items-center gap-2 bg-gradient-to-r from-primary to-secondary px-5 py-2 rounded-full text-white hover:scale-105 duration-300"
+            >
+              Order Now
               <FaCartShopping />
             </button>
 
+            {/* Dark Mode */}
             <DarkMode />
 
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setOpen(!open)}
               className="md:hidden text-3xl"
             >
               {open ? <HiX /> : <HiMenuAlt3 />}
             </button>
-
           </div>
         </div>
       </div>
 
-      
       {/* Desktop Menu */}
-<div className="hidden md:flex justify-center bg-white dark:bg-slate-900">
-  <ul className="flex items-center gap-6 py-3">
-
-    {Menu.map((item) => (
-      <li key={item.id}>
-        <a
-          href={item.link}
-          className="block py-2 text-gray-800 dark:text-white hover:text-primary duration-300"
-        >
-          {item.name}
-        </a>
-      </li>
-    ))}
-
-    {/* Dropdown */}
-    <li className="relative group">
-      <button
-        type="button"
-        className="flex items-center gap-1 py-2 text-gray-800 dark:text-white hover:text-primary duration-300"
-      >
-        Trending
-        <FaCaretDown className="transition-transform duration-300 group-hover:rotate-180" />
-      </button>
-
-      <div
-        className="
-          absolute
-          left-0
-          top-full
-          pt-2
-          opacity-0
-          invisible
-          group-hover:opacity-100
-          group-hover:visible
-          transition-all
-          duration-200
-          z-[9999]
-        "
-      >
-        <div className="w-52 rounded-lg overflow-hidden bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-gray-700">
-
-          {DropdownLinks.map((item) => (
-            <a
-              key={item.id}
-              href={item.link}
-              className="block px-4 py-3 text-gray-800 dark:text-white hover:bg-primary hover:text-white duration-200"
-            >
-              {item.name}
-            </a>
+      <div  className="hidden md:flex justify-center bg-white dark:bg-slate-900">
+        <ul data-aos="zoom-in" className="flex items-center gap-8 py-3">
+          {Menu.map((item) => (
+            <li key={item.id}>
+              <a
+                href={item.link}
+                className="block py-2 hover:text-primary duration-300"
+              >
+                {item.name}
+              </a>
+            </li>
           ))}
 
-        </div>
-      </div>
-    </li>
+          {/* Dropdown */}
+          <li className="relative group">
+            <button className="flex items-center gap-1 py-2 hover:text-primary duration-300">
+              Trending
+              <FaCaretDown className="group-hover:rotate-180 duration-300" />
+            </button>
 
-  </ul>
-</div>
+            <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[999]">
+              <div className="w-56 rounded-lg overflow-hidden bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-gray-700">
+                {DropdownLinks.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.link}
+                    className="block px-4 py-3 hover:bg-primary hover:text-white duration-300"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
 
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-700">
-
+          {/* Search */}
           <div className="p-4">
-
             <div className="relative">
-
               <input
                 type="text"
                 placeholder="Search..."
@@ -145,26 +122,24 @@ const Navbar = () => {
               />
 
               <IoMdSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-300" />
-
             </div>
-
           </div>
 
+          {/* Menu */}
           <ul>
-
             {Menu.map((item) => (
               <li key={item.id}>
                 <a
                   href={item.link}
                   onClick={() => setOpen(false)}
-                  className="block px-6 py-3 text-gray-800 dark:text-white hover:bg-primary hover:text-white duration-300"
+                  className="block px-6 py-3 hover:bg-primary hover:text-white duration-300"
                 >
                   {item.name}
                 </a>
               </li>
             ))}
 
-            <li className="px-6 py-3 font-semibold text-gray-900 dark:text-white">
+            <li className="px-6 py-3 font-semibold">
               Trending Products
             </li>
 
@@ -173,20 +148,26 @@ const Navbar = () => {
                 <a
                   href={item.link}
                   onClick={() => setOpen(false)}
-                  className="block pl-10 py-2 text-gray-700 dark:text-gray-200 hover:bg-primary hover:text-white duration-300"
+                  className="block pl-10 py-3 hover:bg-primary hover:text-white duration-300"
                 >
                   {item.name}
                 </a>
               </li>
             ))}
 
+            {/* Mobile Order Button */}
             <div className="p-4">
-              <button className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-primary to-secondary py-3 rounded-full text-white">
+              <button
+                onClick={() => {
+                  setOrderPopup(true);
+                  setOpen(false);
+                }}
+                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-primary to-secondary py-3 rounded-full text-white hover:scale-105 duration-300"
+              >
                 Order Now
                 <FaCartShopping />
               </button>
             </div>
-
           </ul>
         </div>
       )}

@@ -118,7 +118,7 @@ const Testimonial = () => {
             <SwiperSlide key={item.id}>
               <div
                 data-aos="zoom-in-up"
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center hover:-translate-y-3 hover:shadow-2xl duration-500"
+                className="bg-olive-200 dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center hover:-translate-y-3 hover:shadow-2xl duration-500"
               >
                 <img
                   src={item.img}

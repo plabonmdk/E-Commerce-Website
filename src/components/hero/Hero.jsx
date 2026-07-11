@@ -33,7 +33,7 @@ const ImageList = [
   },
 ];
 
-const Hero = () => {
+const Hero = ({setOrderPopup}) => {
   return (
     <section className="bg-gray-100 dark:bg-slate-950 transition-colors duration-200 ">
       <div className="w-full px-0">
@@ -71,7 +71,9 @@ const Hero = () => {
                       {item.description}
                     </p>
 
-                    <button className="rounded-full bg-orange-500 px-8 py-3 font-semibold text-white hover:bg-orange-600 transition duration-300">
+                    <button
+                    onClick={setOrderPopup}
+                    className="rounded-full bg-orange-500 px-8 py-3 font-semibold text-white hover:bg-orange-600 transition duration-300">
                       Order Now
                     </button>
                   </div>

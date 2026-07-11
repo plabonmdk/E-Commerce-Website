@@ -39,7 +39,7 @@ const productsData = [
   },
 ];
 
-const TopProducts = () => {
+const TopProducts = ({setOrderPopup}) => {
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
@@ -93,7 +93,9 @@ const TopProducts = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-300 mt-3 group-hover:text-white line-clamp-3">
                   {data.description}
                 </p>
-                <button className="mt-6 bg-primary text-white px-6 py-2 rounded-full font-medium group-hover:bg-white group-hover:text-primary duration-300">
+                <button
+                onClick={setOrderPopup}
+                className="mt-6 bg-primary text-white px-6 py-2 rounded-full font-medium group-hover:bg-white group-hover:text-primary duration-300">
                        Order Now
                 </button>
               </div>
