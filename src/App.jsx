@@ -10,6 +10,7 @@ import Products from "./components/products/Products";
 import TopProducts from "./components/topproducts/TopProducts";
 import Banner from "./components/banner/Banner";
 import Subscribe from "./components/subscribe/Subscribe";
+import Testimonial from "./components/testimonial/Testimonial";
 
 function App() {
   React.useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
       <Banner></Banner>
       <Subscribe></Subscribe>
       <Products></Products>
+      <Testimonial></Testimonial>
     </div>
   );
 }
