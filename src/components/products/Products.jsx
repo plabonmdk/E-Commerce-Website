@@ -66,7 +66,7 @@ const ProductsData = [
 
 const Products = () => {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section className="py-16  dark:bg-gray-900">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
@@ -74,7 +74,7 @@ const Products = () => {
             data-aos="fade-up"
             className="text-primary font-semibold uppercase tracking-wider"
           >
-            Top Selling Products
+            Top Selling Products for you
           </p>
 
           <h1
@@ -133,6 +133,16 @@ const Products = () => {
             </div>
           ))}
         </div>
+        {/* View All Button */}
+<div
+  data-aos="fade-up"
+  data-aos-delay="700"
+  className="flex justify-center mt-12"
+>
+  <button className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+    View All Products
+  </button>
+</div>
       </div>
     </section>
   );

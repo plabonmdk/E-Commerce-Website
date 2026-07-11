@@ -7,6 +7,9 @@ import "aos/dist/aos.css";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import Products from "./components/products/Products";
+import TopProducts from "./components/topproducts/TopProducts";
+import Banner from "./components/banner/Banner";
+import Subscribe from "./components/subscribe/Subscribe";
 
 function App() {
   React.useEffect(() => {
@@ -26,6 +29,10 @@ function App() {
       <Navbar />
       <Hero />
       <Products />
+      <TopProducts/>
+      <Banner></Banner>
+      <Subscribe></Subscribe>
+      <Products></Products>
     </div>
   );
 }
