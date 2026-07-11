@@ -6,11 +6,11 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import DarkMode from "../DarkMode";
 
 const Menu = [
-  { id: 1, name: "Home", link: "/#" },
-  { id: 2, name: "Top Rated", link: "/#services" },
-  { id: 3, name: "Kids Wear", link: "/#" },
-  { id: 4, name: "Men's Wear", link: "/#" },
-  { id: 5, name: "Electronics", link: "/#" },
+  { id: 1, name: "Home", link: "#home" },
+  { id: 2, name: "Top Rated", link: "#top-products" },
+  { id: 3, name: "Kids Wear", link: "#products" },
+  { id: 4, name: "Men's Wear", link: "#products" },
+  { id: 5, name: "Electronics", link: "#products" },
 ];
 
 const DropdownLinks = [

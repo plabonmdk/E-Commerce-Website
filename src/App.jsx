@@ -14,6 +14,7 @@ import Testimonial from "./components/testimonial/Testimonial";
 import Footer from "./components/footer/Footer";
 import Popup from "./components/popup/Popup";
 
+
 function App() {
   // Popup State
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -34,13 +35,13 @@ function App() {
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300">
       <Navbar setOrderPopup={setOrderPopup} />
 
-      <Hero setOrderPopup={setOrderPopup} />
-      <Products />
-      <TopProducts setOrderPopup={setOrderPopup} />
+      <Hero id="home" setOrderPopup={setOrderPopup} />
+      <Products id="products" />
+      <TopProducts id="top-products" setOrderPopup={setOrderPopup} />
       <Banner />
-      <Subscribe />
+      <Subscribe id="subscribe" />
       <Products />
-      <Testimonial />
+      <Testimonial id="testimonial" />
       <Footer />
 
       <Popup
